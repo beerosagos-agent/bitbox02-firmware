@@ -1,0 +1,19 @@
+[[language]]
+name = "rust"
+roots = [".git"]
+
+[language-server.rust-analyzer.config]
+linkedProjects = ["src/rust/Cargo.toml"]
+cargo.target = "thumbv8m.main-none-eabihf"
+cargo.features = ["board-stm32u5a9j-dk", "rtt"]
+cargo.allTargets = false
+cfg.setTest = false
+check.workspace = false
+
+# Generate the firmware's bindings without building unrelated workspace packages.
+cargo.buildScripts.overrideCommand = [
+    "cargo", "check", "-p", "bitbox03-firmware",
+    "--target=thumbv8m.main-none-eabihf",
+    "--features=board-stm32u5a9j-dk,rtt",
+    "--message-format=json",
+]
