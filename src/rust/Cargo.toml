@@ -7,6 +7,7 @@ members = [
     "bins/bitbox03-boot0",
     "bins/bitbox03-boot1",
     "bins/bitbox03-factorysetup",
+    "bins/bitbox03-flash-test",
     "bins/bitbox03-firmware",
     "bitbox-aes",
     "bitbox-board-stm32u5a9j-dk",
